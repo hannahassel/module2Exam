@@ -14,12 +14,14 @@ document.getElementById("clearFilterBtn").addEventListener("click", resetFilter)
 //here is a function getinputvalue that we will use later in the code 
 //we want to get a value from html by its id and returns the value of the selected element 
 // the trim removes unwanted things from the value 
+//this is seperated as a function so that it can be reused many times in the code as we see further down 
 function getInputValue(id) {
   return document.getElementById(id).value.trim();
 }
 //this is a function that creates a task object with two properties and then returns the object
 //an idea for improvement is removing the taskObj and just returning the properties like this: return { description, category };
 //because it is just unnessecary lines
+//it is also simple use the function and you dont have to define the structure a lot of times 
 function createTask(description, category) {
   taskObj = {description, category};
   return taskObj;
@@ -50,6 +52,7 @@ function addTask() {
 // the ul.innerHTML = "" does so that it is cleared before rendering the updated tasks 
 // it then loops over each task in the list and then it makes a new li element for each task and adds the li elements to the ul element and adds the task to the showed list 
 // it also displays the category and description in a specific format that you see with the [] and the + and for each new task it creates a new list item 
+// making this function also makes it easier to reuse later as we have in this file 
 function renderTasks(list) {
   const ul = document.getElementById("taskList");
   ul.innerHTML = "";
@@ -65,6 +68,7 @@ function renderTasks(list) {
 // it selects the html element with the taskinput id which is the text input box and then sets the value to "" an empty string and this clears any text the user has entered
 // and this is then used at the buttom of for example the add task function because when everything in the function is done the user has entered a description and a category 
 //and it is pushed to the list after the button is pressed this function then clears the inputfield so it is ready for another task and the user does not have to manually remove the text 
+//this is also a seperated function so it is easier to reuse, and it is simple to add things if you later add more input fields or expand the to do list in any other way
 function clearInputs() {
   document.getElementById("taskInput").value = "";
 }
@@ -116,6 +120,11 @@ function filterTasks() {
 }
 
 //this function uses the rendertask function and the resetfilter function so that when the resetfilter button is pushed it will run the rendertask function and just give us the original list without filtering 
+//easy to reuse and the purpose is clear
 function resetFilter(){
     renderTasks(tasks);
 }
+
+// the reason why there are a lot of particular code in seperated functions is because this makes it easier to reuse the functions, you do not need to describe new versions everytime you want to use this type of function in your code
+// it makes it easier if you later want to add things to your code, to expand the to do list or add other types of functionality
+// we have also learned that a function should to one thing and excactly one thing, it should not do anything more or less. This makes it easy for the developer to fix mistakes, maintain code and debug.
