@@ -1,10 +1,22 @@
+/*The comments are commented above what they are explaining */
+
+/*this is the style for the whole page it has font, a background color, 
+padding makes space between the edge and the content 
+and the margin actually has a default so when you put it to 0 it is supposed to not make any space around the edges */
 body {
     font-family: Arial, sans-serif;
     background: #f2f2f2;
     margin: 0;
     padding: 2rem;
   }
-  
+  /* this container is a class that we see in the html file, this div is wrapped around all the content on the page
+  so all the different elements will be affected by this css styling
+  here we have a background color for the container 
+  a padding to make space between the content and the edge of the container 
+  a border radius that makes the corners of the elements round
+  a max width that decides the maximum width of the container so it can not be wider than the 500
+  and a margin set to auto this makes the margin equally distribute the space so it works with the other components and depends on the others
+  */
   .container {
     background: white;
     padding: 1.5rem;
@@ -12,19 +24,33 @@ body {
     max-width: 500px;
     margin: auto;
   }
-  
+  /* this is styling for the input, select and button elements that we see in the html file 
+  this makes the styling consistent for alle the different elements 
+  the padding is set to make space between the elements and the end of the container 
+  the margin to distrbute the space equally
+  the width is set to 100% so that it fills the entire container it is inside (and here margin and padding plays a roll to make it not be all the way to the side)
+  box sizing border box makes a little border around the elements inside the container 
+  */
   input, select, button {
     padding: 0.5rem;
     margin: 0.3rem 0;
     width: 100%;
     box-sizing: border-box;
   }
-  
+  /*this is styling for the unordered list that we see in the html file 
+  the list style none says that we do not want anything to list the list such as squares, buttons or arrows it is not numbered as that would be the ol
+  padding makes it go all the way to the edge of the box and not have any space 
+  */
   ul {
     list-style: none;
     padding: 0;
   }
-  
+  /* this styling for our list again 
+  here we have a margin to distribute the space equally
+  a background color for our list 
+  and a padding so that the elements are not all the way to the sides 
+  there is also added a border radius that makes the corners round a bit 
+  */
   li {
     margin: 0.5rem 0;
     background: #e8e8e8;

@@ -3,25 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>Todo with Categories</title>
+  <!-- links the css stylesheet to our html file-->
   <link rel="stylesheet" href="Task1.css">
 </head>
 <body>
-  <div class="container">
+<!-- makes a div and class called container-->
+  <div class="container"> 
     <h1>Task Manager</h1>
-
+<!-- makes an input box with the text task description so that the user can write their task-->
     <input type="text" id="taskInput" placeholder="Task description">
+    <!-- makes a dropdown menu with three options work, home and other-->
     <select id="categorySelect">
       <option value="Work">Work</option>
       <option value="Home">Home</option>
       <option value="Other">Other</option>
     </select>
+    <!--makes three buttons add task, filter tasks and reset filter these we also see again in the js file --> 
     <button id="addBtn">Add Task</button>
     <button id="filterBtn">Filter Tasks</button>
     <button id="clearFilterBtn">Reset Filter</button>
-
+<!-- makes an unordered list with the id task list that we will see again in the js file-->
     <ul id="taskList"></ul>
   </div>
-
+<!--links the jacascript file to our html file-->
   <script src="Task1.js"></script>
 </body>
 </html>
