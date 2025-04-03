@@ -69,7 +69,9 @@ function clearInputs() {
   document.getElementById("taskInput").value = "";
 }
 
-//
+//this function is for the filtering of the tasks in the html 
+
+//an idea for an improvement here is usin const instead of let because const is more used on things that is not to be changed so that it can prevent accidental changes 
 function filterTasks() {
   const cat = getInputValue("categorySelect");
   let results = [];
@@ -104,6 +106,7 @@ function filterTasks() {
   ul.appendChild(countInfo);
 }
 
+//this function uses the rendertask function and the resetfilter function so that when the resetfilter button is pushed it will run the rendertask function and just give us the original list without filtering 
 function resetFilter(){
     renderTasks(tasks);
 }
