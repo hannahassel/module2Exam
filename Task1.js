@@ -70,36 +70,45 @@ function clearInputs() {
 }
 
 //this function is for the filtering of the tasks in the html 
-
-//an idea for an improvement here is usin const instead of let because const is more used on things that is not to be changed so that it can prevent accidental changes 
+//an idea for an improvement here is using const instead of let (in the let results = []) because const is more used on things that is not to be changed so that it can prevent accidental changes 
+//first it makes a constant cat and uses the function get input value and and gets the category selected in the dropdown menu by the user and makes an empty array called results 
 function filterTasks() {
   const cat = getInputValue("categorySelect");
-  let results = [];
 
+  let results = [];
+//then it makes a for loop that iterates over the the tasks array and checkes if the category selected matches with the catogorys in the different tasks 
+//then it takes the categories that match and adds the tasks to the array results made over 
   for (let i = 0; i < tasks.length; i++) {
     if (tasks[i].category === cat) {
       results.push(tasks[i]);
     }
   }
-
+//then it logs the information filtered by the new constant and how many are found in this category 
   console.log("Filtering tasks for category:", cat);
   console.log("Found:", results.length);
 
+// then it takes the task list that we already have and empties it with an empty string "" so that it is empty and ready for our new filtered list 
   const ul = document.getElementById("taskList");
   ul.innerHTML = "";
 
+  //then it goes trough our new array results that are the filtered tasks and creates a new li element for them
+  //then they make it look a certain way like we have also done above in a different function so that our new list with the filtered items will look the same 
+  //using the li.textcontent (as we have before) and the [] and + to make a consistent look 
+  //and then adds the new list to the ul element 
   for (let i = 0; i < results.length; i++) {
     const li = document.createElement("li");
     li.textContent = '[' +results[i].category + '] ' + results[i].description;
     ul.appendChild(li);
   }
-
+//this checkes if any of the items in the results list contain a certain word: test 
+// if it does it logs it in the console
   for (let i = 0; i < results.length; i++) {
     if (results[i].description.includes("test")) {
       console.log("Task contains 'test':", results[i].description);
     }
   }
-
+// this adds a new li at the bottom that show how many items the user have in their category it sets it to bold and writes the way they want it to be displayed in the html file.
+//and at last adds it to the ul 
   const countInfo = document.createElement("li");
   countInfo.textContent = 'Total in ' + cat + ': ' + results.length;
   countInfo.style.fontWeight = "bold";
