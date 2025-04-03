@@ -24,7 +24,7 @@ function confirmBooking() {
         alert('Please calculate the total before confirming.');
         return;
     }
-
+    
     document.getElementById('confirmation-msg').innerText = `Your booking is confirmed. Total cost: $${total}`;
 }
 
